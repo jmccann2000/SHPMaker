@@ -1,0 +1,30 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  font-family: sans-serif;
+  overflow:hidden;
+}
+
+.toolBar{
+  background-color: #333;
+  border-bottom: 1px solid black;
+  overflow: hidden;
+}
+
+.toolBar h3{
+  float: left;
+}
+
+/*drawing area*/
+#canvasWrapper{
+  display:inline-block;
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: white;
+}
+.coords{
+  position:absolute;
+  bottom:0;
+  left:1%;
+}
