@@ -18,7 +18,7 @@ export class CanvasContainer extends React.Component{
   render() {
     const { x, y } = this.state;
     return (
-      <div>
+      <div class = ''>
         <Canvas x={x} y={y} onMouseMove={this._onMouseMove.bind(this)} />
       </div>
     );

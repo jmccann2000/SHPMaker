@@ -1,2 +1,2 @@
 # SHPMaker
-Browser program for creation and editing of shapefiles using React and Python.
+Tool for viewing and editing shapefiles using React and Python.

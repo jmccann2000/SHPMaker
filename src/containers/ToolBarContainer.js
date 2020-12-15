@@ -4,7 +4,7 @@ import {ToolBar} from '../components/ToolBar';
 export class ToolBarContainer extends React.Component{
   render(){
     return (
-      <div>
+      <div class = 'toolbar'>
         <ToolBar/>
       </div>
   );
