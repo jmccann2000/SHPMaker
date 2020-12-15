@@ -6,24 +6,60 @@ html, body {
   overflow:hidden;
 }
 
-.toolBar{
+/*Shape list*/
+#shapeListWrapper{
+  position:absolute;
+  display: inline-block;
+  width:200px;
+  right:0;
+  border-left: 1px solid black;
+}
+
+/*Individual Shape*/
+.shapeWrapper{
+  display:inline-block;
+  width:200px;
+  right:0;
+  border-bottom: 1px solid black;
+}
+
+.shapeWrapper p{
+  font-size:15px;
+  text-align:left;
+  padding-left:10;
+}
+
+/*Entire Toolbar*/
+#canvasToolbarWrapper{
   background-color: #333;
   border-bottom: 1px solid black;
   overflow: hidden;
 }
 
-.toolBar h3{
-  float: left;
+/*Tools Toolbar*/
+#toolsToolbar{
+  position:absolute;
+  display:inline-block;
+  left: 0;
 }
 
-/*drawing area*/
+/*Shapes Toolbar*/
+#shapesToolbar{
+  position:absolute;
+  display:inline-block;
+  right: 0;
+  top: 0;
+}
+
+/*Drawing Area*/
 #canvasWrapper{
   display:inline-block;
+  z-index: 2;
   min-width: 100%;
   min-height: 100vh;
   background-color: white;
 }
-.coords{
+#coords{
   position:absolute;
   bottom:0;
   left:1%;

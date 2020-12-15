@@ -7,7 +7,7 @@ export class CanvasContainer extends React.Component{
     super(props);
     this.state = { x: 0, y: 0 };
   }
-  
+
   _onMouseMove(e) {
     this.setState({
       x: e.nativeEvent.offsetX,
