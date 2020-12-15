@@ -11,7 +11,7 @@ export class CanvasContainer extends React.Component{
   _onMouseMove(e) {
     this.setState({
       x: e.nativeEvent.offsetX,
-      y: document.getElementById('canvasWrapper').clientHeight - e.nativeEvent.offsetY
+      y: document.getElementById('canvasWrapper').clientHeight - e.nativeEvent.offsetY - 23
     });
   }
 
