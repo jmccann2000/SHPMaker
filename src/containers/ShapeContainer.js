@@ -4,7 +4,7 @@ export class ShapeContainer extends React.Component{
   render(){
     return (
       <div className='shapeWrapper'>
-        <p>Shape 1</p>
+        <p>{this.props.shape}</p>
       </div>
     )
   }
