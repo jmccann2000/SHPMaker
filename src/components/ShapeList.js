@@ -4,12 +4,17 @@ import {ShapeContainer} from './../containers/ShapeContainer'
 
 export class ShapeList extends React.Component {
 
-  render(){
-    const shapes = this.props.shapes;
+  constructor(props){
+    super(props);
+  }
 
-    const shapeList = shapes.map((s) =>
+
+  render(){
+    const list = this.props.list;
+    const shapeList = list.map((s) =>
       <ShapeContainer shape = {s}/>
     );
+
 
     return(
     <div>

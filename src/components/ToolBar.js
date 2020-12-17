@@ -1,21 +1,42 @@
 import React from "react";
-import {Toggle} from "../containers/ToggleContainer";
-import {ShapeContainer} from "../containers/ShapeContainer"
+import {Toggle} from "../components/Toggle";
+import {ShapeListContainer} from "../containers/ShapeListContainer"
+import {ShapeList} from "./ShapeList"
+
 
 export class ToolBar extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {shapeList: ["Shape1"]};
+    this.state = {
+      toggle: true,
+      sl: ["Shape1"],
+      len: 1
+    };
     this.addShape = this.addShape.bind(this);
+    this.minimizeShapeList = this.minimizeShapeList.bind(this);
   }
 
   addShape(){
-    const newLength = this.state.shapeList.length+1;
-    this.state.shapeList.push("Shape"+newLength);
+    const newLength = this.state.len+1;
+    const new_sl = this.state.sl;
+    new_sl.push("Shape"+newLength);
+    this.setState({
+      len: this.state.len+1,
+      sl: new_sl
+    });
+  }
+
+  minimizeShapeList() {
+    this.setState(state => ({
+      toggle: !state.toggle
+    }));
   }
 
   render(){
+    const shapeList = this.state.sl;
+    const toggle = this.state.toggle;
+
     return (
       <div id="canvasToolbarWrapper">
         <div id="toolsToolBar">
@@ -24,8 +45,9 @@ export class ToolBar extends React.Component{
         </div>
         <div id="shapesToolbar">
           <button onClick = {this.addShape}>Add Shape</button>
-          <Toggle/>
+          <Toggle minimizeShapeList = {this.minimizeShapeList} isToggleOn = {toggle}/>
         </div>
+        <ShapeListContainer shapeList = {shapeList} isToggleOn = {toggle}/>
       </div>
     );
   }
