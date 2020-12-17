@@ -10,7 +10,8 @@ ReactDOM.render(
   <div>
     <ToolBarContainer />
     <ShapeListContainer>
-
+      <ShapeContainer />
+      <ShapeContainer />
     </ShapeListContainer>
     <CanvasContainer/>
   </div>,

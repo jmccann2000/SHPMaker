@@ -7,7 +7,9 @@ export class Canvas extends React.Component {
     let y = this.props.y;
     return(
     <div>
-      <div id='canvasWrapper' onMouseMove={this.props.onMouseMove} />
+      <div id='canvasWrapper' onMouseMove={this.props.onMouseMove} onClick={this.props.onClick}>
+      <div>{this.props.points}</div>
+      </div>
       <p id='coords'> x: {x} y: {y}</p>
     </div>
   )

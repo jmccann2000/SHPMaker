@@ -1,11 +1,18 @@
 import React from 'react';
 import {Canvas} from '../components/Canvas';
+import {Point} from '../components/Point';
+
+function createPoint(x,y){
+  return(
+    <Point x={x} y={y} />
+  );
+}
 
 export class CanvasContainer extends React.Component{
 
   constructor(props) {
     super(props);
-    this.state = { x: 0, y: 0 };
+    this.state={ x: 0, y: 0, points:[]}
   }
 
   _onMouseMove(e) {
@@ -15,11 +22,26 @@ export class CanvasContainer extends React.Component{
     });
   }
 
+_onClick(e){
+    var prevPoints = this.state.points;
+    var x = this.state.x;
+    var y = this.state.y;
+    prevPoints.push(createPoint(x,y));
+    this.setState({
+      points: prevPoints
+    });
+  }
+
+
+
+
   render() {
-    const { x, y } = this.state;
+    var x = this.state.x;
+    var y = this.state.y;
+
     return (
-      <div class = ''>
-        <Canvas x={x} y={y} onMouseMove={this._onMouseMove.bind(this)} />
+      <div class=''>
+        <Canvas x={x} y={y} onMouseMove={this._onMouseMove.bind(this)} onClick ={this._onClick.bind(this)} points={this.state.points}/>
       </div>
     );
   }
