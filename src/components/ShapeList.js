@@ -10,9 +10,11 @@ export class ShapeList extends React.Component {
 
 
   render(){
+    const removeShape = this.props.removeShape;
+
     const list = this.props.list;
     const shapeList = list.map((s) =>
-      <ShapeContainer shape = {s}/>
+      <ShapeContainer shape = {s} removeShape = {removeShape}/>
     );
 
 

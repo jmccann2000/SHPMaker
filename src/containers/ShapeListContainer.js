@@ -16,10 +16,12 @@ export class ShapeListContainer extends React.Component{
       display: disp
     }
 
+    const removeShape = this.props.removeShape;
+
     return (
       <div>
         <div className = "shapeWrapper" id='shapeListWrapper' style = {style}>
-          <ShapeList list={list} />
+          <ShapeList list={list} removeShape = {removeShape}/>
         </div>
       </div>
     )

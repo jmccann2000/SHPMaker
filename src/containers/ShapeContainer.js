@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './../styles.modules.css'
 
 export class ShapeContainer extends React.Component{
+
+
   render(){
 
     return (
@@ -10,7 +12,7 @@ export class ShapeContainer extends React.Component{
           <button> {this.props.shape} </button>
         </div>
         <div className = 'smallButton'>
-          <button>X</button>
+          <button onClick = {this.props.removeShape} id = {this.props.shape}>X</button>
           <button>U</button>
           <button>D</button>
         </div>
