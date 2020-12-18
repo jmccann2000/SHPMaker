@@ -1,20 +1,19 @@
 import React from 'react';
-import styles from './../styles.modules.css'
 
 export class ShapeContainer extends React.Component{
-
 
   render(){
 
     return (
       <div className='shapeWrapper'>
         <div className = 'shapeButton'>
-          <button> {this.props.shape} </button>
+          <button onHover = {this.onHover}> {this.props.shape} </button>
         </div>
         <div className = 'smallButton'>
           <button onClick = {this.props.removeShape} id = {this.props.shape}>X</button>
-          <button>U</button>
-          <button>D</button>
+          <button onClick = {this.props.moveUp} id = {this.props.shape}>U</button>
+          <button onClick = {this.props.moveDown} id = {this.props.shape}>D</button>
+          <button onClick = {this.props.moveDown} id = {this.props.shape}>Merge</button>
         </div>
       </div>
     )

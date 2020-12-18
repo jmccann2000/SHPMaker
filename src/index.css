@@ -51,11 +51,18 @@ body {
   color: #595959;
 }
 
+.shapeWrapper .shapeButton button:hover {
+  background-color:  #d9d9d9;
+}
 
 .shapeWrapper .smallButton button{
   font-size: 15px;
   font-family: 'Titillium Web', sans-serif;
   border-radius: 5px;
+}
+
+.shapeWrapper .smallButton button:hover {
+  background-color: #d9d9d9;
 }
 
 /*Entire Toolbar*/

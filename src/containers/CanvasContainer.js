@@ -1,6 +1,7 @@
 import React from 'react';
 import {Canvas} from '../components/Canvas';
 import {Point} from '../components/Point';
+import {ShapeContainer} from '../containers/ShapeContainer';
 
 function createPoint(x,y){
   return(
