@@ -32,6 +32,9 @@ export class ToolBar extends React.Component{
       len: 1,
       id: 1
     };
+
+    this.props.shapeStore.storeShapeData(this.state.sl);
+
     this.addShape = this.addShape.bind(this);
     this.removeShape = this.removeShape.bind(this);
     this.moveUp = this.moveUp.bind(this);
@@ -47,6 +50,9 @@ export class ToolBar extends React.Component{
       sl: new_sl,
       id: new_id
     });
+
+    this.props.shapeStore.storeShapeData(this.state.sl);
+
   }
 
   removeShape(e){
@@ -55,6 +61,9 @@ export class ToolBar extends React.Component{
     this.setState({
       sl: new_sl
     });
+
+    this.props.shapeStore.storeShapeData(this.state.sl);
+
   }
 
   moveUp(e){

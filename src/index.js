@@ -5,12 +5,16 @@ import {ToolBarContainer} from './containers/ToolBarContainer';
 import {ShapeListContainer} from './containers/ShapeListContainer';
 import {ShapeContainer} from './containers/ShapeContainer';
 
+import {ShapeListData} from './components/ShapeListData';
+
 import './index.css';
+
+const shapeData = new ShapeListData();
 
 ReactDOM.render(
   <div>
-    <ToolBarContainer />
-    <CanvasContainer/>
+    <ToolBarContainer shapeStore={shapeData}/>
+    <CanvasContainer shapeStore={shapeData}/>
   </div>,
   document.getElementById('root')
 );
