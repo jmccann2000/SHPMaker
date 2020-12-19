@@ -4,8 +4,8 @@ import {ToolBar} from '../components/ToolBar';
 export class ToolBarContainer extends React.Component{
   render(){
     return (
-      <div class='toolbar'>
-        <ToolBar/>
+      <div class='toolbar' >
+        <ToolBar shapeStore={this.props.shapeStore}/>
       </div>
   );
   }
