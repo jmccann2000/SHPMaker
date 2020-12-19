@@ -28,7 +28,7 @@ export class ShapeListContainer extends React.Component{
             removeShape = {removeShape}
             moveUp = {moveUp}
             moveDown = {moveDown}
-            />
+          />
         </div>
       </div>
     )
