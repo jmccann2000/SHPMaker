@@ -41,7 +41,7 @@ _onClick(e){
     var y = this.state.y;
 
     return (
-      <div class=''>
+      <div className=''>
         <Canvas x={x} y={y} onMouseMove={this._onMouseMove.bind(this)} onClick ={this._onClick.bind(this)} points={this.state.points}/>
       </div>
     );

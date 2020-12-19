@@ -29,7 +29,8 @@ export class ToolBar extends React.Component{
     this.state = {
       toggle: true,
       sl: ["Shape1"],
-      len: 1
+      len: 1,
+      id: 1
     };
     this.addShape = this.addShape.bind(this);
     this.removeShape = this.removeShape.bind(this);
@@ -39,21 +40,19 @@ export class ToolBar extends React.Component{
   }
 
   addShape(){
-    const newLength = this.state.len+1;
+    const new_id = this.state.id+1;
     const new_sl = this.state.sl;
-    new_sl.push("Shape"+newLength);
+    new_sl.push("Shape"+new_id);
     this.setState({
-      len: this.state.len+1,
-      sl: new_sl
+      sl: new_sl,
+      id: new_id
     });
   }
 
   removeShape(e){
-    const newLength = this.state.len+1;
     const new_sl = this.state.sl;
     removeFromList(new_sl, e.target.getAttribute("id"));
     this.setState({
-      len: this.state.len-1,
       sl: new_sl
     });
   }

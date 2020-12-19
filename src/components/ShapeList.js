@@ -15,9 +15,11 @@ export class ShapeList extends React.Component {
     const moveDown = this.props.moveDown;
 
     const list = this.props.list;
+
     const shapeList = list.map((s) =>
       <ShapeContainer
         shape = {s}
+        key = {s}
         removeShape = {removeShape}
         moveUp = {moveUp}
         moveDown = {moveDown}
