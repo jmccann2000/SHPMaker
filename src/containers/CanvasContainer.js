@@ -40,7 +40,7 @@ export class CanvasContainer extends React.Component{
         pointLen: len
       });
 
-    this.props.shapeStore.storePointData(this.state.points);
+    this.props.shapeData.storePointData(this.state.points);
   }
 
 
@@ -58,7 +58,7 @@ export class CanvasContainer extends React.Component{
           onMouseMove={this._onMouseMove.bind(this)}
           onClick ={this._onClick.bind(this)}
           points={this.state.points}
-          shapeStore={this.props.shapeStore}
+          shapeData={this.props.shapeData}
         />
       </div>
     );

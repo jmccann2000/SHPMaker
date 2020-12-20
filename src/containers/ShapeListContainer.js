@@ -8,7 +8,7 @@ export class ShapeListContainer extends React.Component{
   }
 
   render(){
-    const list = this.props.shapeList;
+    const shapeData = this.props.shapeData;
     const isToggleOn = this.props.isToggleOn;
 
     const disp = isToggleOn?"block":"none";
@@ -16,18 +16,11 @@ export class ShapeListContainer extends React.Component{
       display: disp
     }
 
-    const removeShape = this.props.removeShape;
-    const moveUp = this.props.moveUp;
-    const moveDown = this.props.moveDown;
-
     return (
       <div>
         <div className = "shapeWrapper" id='shapeListWrapper' style = {style}>
           <ShapeList
-            list={list}
-            removeShape = {removeShape}
-            moveUp = {moveUp}
-            moveDown = {moveDown}
+            shapeData={shapeData}
           />
         </div>
       </div>

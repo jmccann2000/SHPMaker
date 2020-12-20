@@ -1,7 +1,8 @@
 import React from 'react';
+import {ShapeListData} from './ShapeListData';
 
 function generateRandomPoints(width, height, num){
-  var points = []
+  var points = [];
   for(var i = 0; i < num; i++){
     const point = [width*Math.random(), height*Math.random()]
     points[i] = point;

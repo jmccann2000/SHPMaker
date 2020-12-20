@@ -5,7 +5,7 @@ export class ToolBarContainer extends React.Component{
   render(){
     return (
       <div class='toolbar' >
-        <ToolBar shapeStore={this.props.shapeStore}/>
+        <ToolBar  shapeData={this.props.shapeData}/>
       </div>
   );
   }
