@@ -2,10 +2,11 @@ export class ShapeListData {
 
   constructor(){
     this.shapeData=["Shape"+1];
-    this.pointData = this.shapeData.map((key) =>
-      []
-    );
+    this.pointData = new Map([this.shapeData]);
+    this.pointData.set("Shape1", ["ASf"]);
     this.id = 1;
+
+
   }
 
   storeShapeData(data){

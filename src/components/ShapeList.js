@@ -34,6 +34,7 @@ export class ShapeList extends React.Component {
     this.removeShape = this.removeShape.bind(this);
     this.moveUp = this.moveUp.bind(this);
     this.moveDown = this.moveDown.bind(this);
+    this.merge = this.merge.bind(this);
   }
 
   removeShape(e){
@@ -67,6 +68,20 @@ export class ShapeList extends React.Component {
     })
   }
 
+  merge(e){
+    const new_sl = this.state.sl;
+    const shapeData = this.props.shapeData;
+    const points = this.props.shapeData.getPointData();
+    const id = e.target.getAttribute("id");
+    const index = new_sl.indexOf(id);
+    let mergePoints;
+    if(index < new_sl.length-1){
+      mergePoints = points.get(id);
+      alert(mergePoints);
+    }
+    //continue
+  }
+
 
   render(){
     const shapeData = this.props.shapeData;
@@ -79,6 +94,7 @@ export class ShapeList extends React.Component {
         removeShape = {this.removeShape}
         moveUp = {this.moveUp}
         moveDown = {this.moveDown}
+        merge = {this.merge}
         />
     );
 
