@@ -22,7 +22,9 @@ export class ShapeIcon extends React.Component{
     const canvasWidth = document.getElementById('canvasWrapper').clientWidth;
     const canvasHeight = document.getElementById('canvasWrapper').clientHeight;
 
-    const points = generateRandomPoints(canvasWidth, canvasHeight, 1000);
+    //const points = generateRandomPoints(canvasWidth, canvasHeight, 1000);
+    const shapeData = this.props.shapeData;
+    const points = shapeData.getPointData();
 
     for(var i = 0; i < points.length; i++){
       ctx.fillRect(points[i][0],points[i][1],1,1);
