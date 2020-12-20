@@ -9,7 +9,7 @@ export class ShapeListData {
   }
 
   getShapeData(){
-    return this.data;
+    return this.shapeData;
   }
 
   storePointData(data){
