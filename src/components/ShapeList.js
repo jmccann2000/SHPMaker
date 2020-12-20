@@ -70,12 +70,12 @@ export class ShapeList extends React.Component {
 
   render(){
     const shapeData = this.props.shapeData;
-
     const list = shapeData.getShapeData();
     const shapeList = list.map((s) =>
       <ShapeContainer
         shape = {s}
         key = {s}
+        shapeData = {this.props.shapeData}
         removeShape = {this.removeShape}
         moveUp = {this.moveUp}
         moveDown = {this.moveDown}
@@ -87,6 +87,6 @@ export class ShapeList extends React.Component {
     <div>
       {shapeList}
     </div>
-  )
+  );
   }
 }
