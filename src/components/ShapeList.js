@@ -44,6 +44,8 @@ export class ShapeList extends React.Component {
       sl: new_sl
     });
 
+
+
     this.props.shapeData.storeShapeData(this.state.sl);
 
   }
