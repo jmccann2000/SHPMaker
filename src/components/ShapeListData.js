@@ -22,7 +22,7 @@ export class ShapeListData {
   }
 
   getPointData(){
-    return this.pointData.get(this.currShape);
+    return this.pointData;
   }
 
   incrementID(){

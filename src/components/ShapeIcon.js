@@ -35,7 +35,6 @@ export class ShapeIcon extends React.Component{
   updateCurrShape(){
     const shape = this.props.shape;
     const shapeData = this.props.shapeData;
-    alert(shape)
     shapeData.setCurrShape(shape);
   }
 
