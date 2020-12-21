@@ -21,6 +21,12 @@ export class ToolBar extends React.Component{
     shapeData.incrementID();
     shapeList.push("Shape"+shapeData.id);
     shapeData.storeShapeData(shapeList);
+
+    let shapePointMap=shapeData.getPointData();
+    shapePointMap.set("Shape"+shapeData.id,[]);
+
+    shapeData.storePointData(shapePointMap);
+
     this.forceUpdate();
   }
 
