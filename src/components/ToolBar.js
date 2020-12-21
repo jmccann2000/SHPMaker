@@ -15,6 +15,7 @@ export class ToolBar extends React.Component{
     this.addShape = this.addShape.bind(this);
   }
 
+  //error
   addShape(){
     const shapeData = this.props.shapeData;
     const shapeList = shapeData.getShapeData();
@@ -26,6 +27,8 @@ export class ToolBar extends React.Component{
     shapePointMap.set("Shape"+shapeData.id,[]);
 
     shapeData.storePointData(shapePointMap);
+
+    shapeData.setCurrShape("Shape"+shapeData.id);
 
     this.forceUpdate();
   }

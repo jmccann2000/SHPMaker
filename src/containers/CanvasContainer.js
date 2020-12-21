@@ -51,6 +51,7 @@ export class CanvasContainer extends React.Component{
 
       console.log(preAddList);
 
+
   }
 
 

@@ -37,19 +37,25 @@ export class ShapeList extends React.Component {
     this.merge = this.merge.bind(this);
   }
 
+  //error
   removeShape(e){
     const new_sl = this.state.sl;
     const shapeData = this.props.shapeData;
 
-    removeFromList(new_sl, e.target.getAttribute("id"));
-    this.setState({
-      sl: new_sl
-    });
+    if(shapeData.getShapeData().length  > 1){
+      removeFromList(new_sl, e.target.getAttribute("id"));
+      this.setState({
+        sl: new_sl
+      });
 
-    this.props.shapeData.storeShapeData(this.state.sl);
+      this.props.shapeData.storeShapeData(this.state.sl);
 
-    const pointData = shapeData.getPointData();
-    pointData.delete(shapeData.currShape);
+      shapeData.setCurrShape(e.target.getAttribute("id"));
+
+      const pointData = shapeData.getPointData();
+
+      pointData.delete(shapeData.currShape);
+    }
 
 
   }
@@ -90,6 +96,7 @@ export class ShapeList extends React.Component {
   render(){
     const shapeData = this.props.shapeData;
     const list = shapeData.getShapeData();
+
     const shapeList = list.map((s) =>
       <ShapeContainer
         shape = {s}

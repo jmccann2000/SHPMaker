@@ -9,7 +9,12 @@ export class ShapeContainer extends React.Component{
     return (
       <div className='shapeWrapper'>
         <div className = 'shapeButton'>
-          <ShapeIcon shape = {this.props.shape} shapeData = {this.props.shapeData}/>
+          <ShapeIcon
+            shape = {this.props.shape}
+            shapeData = {this.props.shapeData}
+            pointData = {this.props.pointData}
+
+          />
         </div>
         <div className = 'smallButton'>
           <button onClick = {this.props.removeShape} id = {this.props.shape}>X</button>

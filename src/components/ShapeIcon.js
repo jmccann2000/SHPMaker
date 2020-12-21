@@ -12,6 +12,7 @@ function generateRandomPoints(width, height, num){
 
 export class ShapeIcon extends React.Component{
   componentDidMount(){
+
     const canvas = this.refs.canvas;
     const ctx = canvas.getContext("2d");
 
@@ -25,10 +26,13 @@ export class ShapeIcon extends React.Component{
     const shapeData = this.props.shapeData;
     const shape = this.props.shape;
 
-    const points = shapeData.getPointData();
 
-    for(var i = 0; i < points.length; i++){
-      ctx.fillRect(points[i][0],points[i][1],1,1);
+    const pointData = shapeData.getPointData();
+    const currPoints = pointData.get(shapeData.getCurrShape());
+
+    for(var i = 0; i < currPoints.length; i++){
+      const currPoint = currPoints[i];
+      ctx.fillRect(currPoint[0],currPoints[1],1,1);
     }
   }
 
@@ -39,10 +43,12 @@ export class ShapeIcon extends React.Component{
   }
 
   render(){
+
     return(
       <div>
         <canvas onClick = {this.updateCurrShape.bind(this)} ref="canvas" />
       </div>
     )
+
   }
 }
