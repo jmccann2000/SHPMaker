@@ -23,6 +23,8 @@ export class ShapeIcon extends React.Component{
 
     //const points = generateRandomPoints(canvasWidth, canvasHeight, 1000);
     const shapeData = this.props.shapeData;
+    const shape = this.props.shape;
+
     const points = shapeData.getPointData();
 
     for(var i = 0; i < points.length; i++){
@@ -30,10 +32,17 @@ export class ShapeIcon extends React.Component{
     }
   }
 
+  updateCurrShape(){
+    const shape = this.props.shape;
+    const shapeData = this.props.shapeData;
+    alert(shape)
+    shapeData.setCurrShape(shape);
+  }
+
   render(){
     return(
       <div>
-        <canvas ref="canvas" />
+        <canvas onClick = {this.updateCurrShape.bind(this)} ref="canvas" />
       </div>
     )
   }

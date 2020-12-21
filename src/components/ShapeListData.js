@@ -5,8 +5,7 @@ export class ShapeListData {
     this.pointData = new Map([this.shapeData]);
     this.pointData.set("Shape1", ["ASf"]);
     this.id = 1;
-
-
+    this.currShape = "Shape1";
   }
 
   storeShapeData(data){
@@ -23,10 +22,18 @@ export class ShapeListData {
   }
 
   getPointData(){
-    return this.pointData;
+    return this.pointData.get(this.currShape);
   }
 
   incrementID(){
     this.id = this.id + 1;
+  }
+
+  getCurrShape(){
+    return this.currShape;
+  }
+
+  setCurrShape(id){
+    this.currShape = id;
   }
 }

@@ -5,10 +5,11 @@ import {ShapeIcon} from './../components/ShapeIcon';
 export class ShapeContainer extends React.Component{
 
   render(){
+
     return (
       <div className='shapeWrapper'>
         <div className = 'shapeButton'>
-          <button> <ShapeIcon shapeData = {this.props.shapeData}/> </button>
+          <ShapeIcon shape = {this.props.shape} shapeData = {this.props.shapeData}/>
         </div>
         <div className = 'smallButton'>
           <button onClick = {this.props.removeShape} id = {this.props.shape}>X</button>

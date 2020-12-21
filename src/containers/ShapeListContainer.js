@@ -20,7 +20,7 @@ export class ShapeListContainer extends React.Component{
       <div>
         <div className = "shapeWrapper" id='shapeListWrapper' style = {style}>
           <ShapeList
-            shapeData={this.props.shapeData}
+            shapeData={shapeData}
           />
         </div>
       </div>
