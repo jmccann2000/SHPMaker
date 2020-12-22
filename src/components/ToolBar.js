@@ -58,6 +58,7 @@ export class ToolBar extends React.Component{
         <ShapeListContainer
           shapeData = {shapeData}
           isToggleOn = {toggle}
+          update = {this.props.update}
           />
       </div>
     );

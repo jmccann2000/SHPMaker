@@ -106,6 +106,7 @@ export class ShapeList extends React.Component {
         moveUp = {this.moveUp}
         moveDown = {this.moveDown}
         merge = {this.merge}
+        update = {this.props.update}
         />
     );
 

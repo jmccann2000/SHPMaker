@@ -15,12 +15,13 @@ export class ShapeListContainer extends React.Component{
     const style = {
       display: disp
     }
-    
+
     return (
       <div>
         <div className = "shapeWrapper" id='shapeListWrapper' style = {style}>
           <ShapeList
             shapeData={shapeData}
+            update = {this.props.update}
           />
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Canvas} from '../components/Canvas';
 import {Point} from '../components/Point';
 import {ShapeContainer} from '../containers/ShapeContainer';
+import {ShapeListData} from './../components/ShapeListData';
 
 function createPoint(x,y,length){
   let id="Point"+length;
@@ -48,6 +49,10 @@ export class CanvasContainer extends React.Component{
       let preAddList=currentPoints.get(currentShape);
 
       preAddList.push([this.state.x,this.state.y]);
+
+      this.props.update();
+
+      alert(shapeData.getCurrShape());
 
       console.log(preAddList);
 
