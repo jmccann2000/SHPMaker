@@ -23,7 +23,7 @@ export class ShapeIcon extends React.Component{
     const canvasWidth = document.getElementById('canvasWrapper').clientWidth;
     const canvasHeight = document.getElementById('canvasWrapper').clientHeight;
 
-    const points = generateRandomPoints(canvasWidth, canvasHeight, 1000);
+    //const points = generateRandomPoints(canvasWidth, canvasHeight, 1000);
     const shapeData = this.props.shapeData;
     const shape = this.props.shape;
 
@@ -43,7 +43,6 @@ export class ShapeIcon extends React.Component{
     const shape = this.props.shape;
     const shapeData = this.props.shapeData;
     shapeData.setCurrShape(shape);
-    this.update();
 
   }
 

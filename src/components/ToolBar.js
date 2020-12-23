@@ -9,6 +9,7 @@ export class ToolBar extends React.Component{
     super(props);
     this.state = {
       toggle: true,
+      id: 1
     };
 
     this.minimizeShapeList = this.minimizeShapeList.bind(this);
@@ -17,18 +18,10 @@ export class ToolBar extends React.Component{
 
   //error
   addShape(){
-    const shapeData = this.props.shapeData;
-    const shapeList = shapeData.getShapeData();
-    shapeData.incrementID();
-    shapeList.push("Shape"+shapeData.id);
-    shapeData.storeShapeData(shapeList);
+    this.setState({
+      id: id+1;
+    });
 
-    let shapePointMap=shapeData.getPointData();
-    shapePointMap.set("Shape"+shapeData.id,[]);
-
-    shapeData.storePointData(shapePointMap);
-
-    shapeData.setCurrShape("Shape"+shapeData.id);
 
     this.forceUpdate();
   }

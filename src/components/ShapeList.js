@@ -24,12 +24,7 @@ export class ShapeList extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      sl: ["Shape1"],
-      len: 1,
-    };
 
-    this.props.shapeData.storeShapeData(this.state.sl);
 
     this.removeShape = this.removeShape.bind(this);
     this.moveUp = this.moveUp.bind(this);
@@ -39,16 +34,13 @@ export class ShapeList extends React.Component {
 
   //error
   removeShape(e){
-    const new_sl = this.state.sl;
     const shapeData = this.props.shapeData;
+    const new_sl = shapeData.getShapeData();
 
     if(shapeData.getShapeData().length  > 1){
       removeFromList(new_sl, e.target.getAttribute("id"));
-      this.setState({
-        sl: new_sl
-      });
 
-      this.props.shapeData.storeShapeData(this.state.sl);
+      this.props.shapeData.storeShapeData(new_sl);
 
       shapeData.setCurrShape(e.target.getAttribute("id"));
 
@@ -57,32 +49,29 @@ export class ShapeList extends React.Component {
       pointData.delete(shapeData.currShape);
     }
 
-
   }
 
   moveUp(e){
-    const new_sl = this.state.sl;
+    const shapeData = this.props.shapeData;
+    const new_sl = shapeData.getShapeData();
     const up = true;
     const id = e.target.getAttribute("id");
     swap(new_sl, id, up);
-    this.setState({
-      sl: new_sl
-    })
+    this.forceUpdate();
   }
 
   moveDown(e){
-    const new_sl = this.state.sl;
+    const shapeData = this.props.shapeData;
+    const new_sl = shapeData.getShapeData();
     const up = false;
     const id = e.target.getAttribute("id");
     swap(new_sl, id, up);
-    this.setState({
-      sl: new_sl
-    })
+    this.forceUpdate();
   }
 
   merge(e){
-    const new_sl = this.state.sl;
     const shapeData = this.props.shapeData;
+    const new_sl = shapeData.getShapeData();
     const pointData = this.props.shapeData.getPointData();
     const id = e.target.getAttribute("id");
     const index = new_sl.indexOf(id);

@@ -44,15 +44,18 @@ export class CanvasContainer extends React.Component{
 
       let shapeData=this.props.shapeData;
       let currentShape=shapeData.getCurrShape();
-      let currentPoints=shapeData.getPointData();
+      let pointData =shapeData.getPointData();
 
-      let preAddList=currentPoints.get(currentShape);
+      let preAddList=pointData.get(currentShape);
+      //alert(preAddList)
+
 
       preAddList.push([this.state.x,this.state.y]);
+      pointData.set(currentShape, preAddList);
+      shapeData.storePointData(pointData);
 
       this.props.update();
 
-      alert(shapeData.getCurrShape());
 
       console.log(preAddList);
 
