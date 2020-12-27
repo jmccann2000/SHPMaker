@@ -8,7 +8,6 @@ export class ShapeListContainer extends React.Component{
   }
 
   render(){
-    const shapeData = this.props.shapeData;
     const isToggleOn = this.props.isToggleOn;
 
     const disp = isToggleOn?"block":"none";
@@ -20,7 +19,8 @@ export class ShapeListContainer extends React.Component{
       <div>
         <div className = "shapeWrapper" id='shapeListWrapper' style = {style}>
           <ShapeList
-            shapeData={shapeData}
+            pointData = {this.props.pointData}
+            currShape = {this.props.currShape}
             update = {this.props.update}
           />
         </div>

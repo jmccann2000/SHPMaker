@@ -6,7 +6,11 @@ export class ToolBarContainer extends React.Component{
   render(){
     return (
       <div class='toolbar' >
-        <ToolBar  shapeData={this.props.shapeData} update = {this.props.update}/>
+        <ToolBar
+          pointData = {this.props.pointData}
+          currShape = {this.props.currShape}
+          update = {this.props.update}
+        />
       </div>
   );
   }

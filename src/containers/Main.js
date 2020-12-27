@@ -8,8 +8,7 @@ export class Main extends React.Component{
     super(props);
 
     this.state = {
-      pointData: new Map(["Shape1"]),
-      id: 1,
+      pointData: new Map([["Shape1"]]),
       currShape: "Shape1"
     }
 
@@ -18,11 +17,10 @@ export class Main extends React.Component{
     this.update = this.update.bind(this);
   }
 
-  setPointData(shape, data){
-    let temp = this.state.pointData;
-    temp.set(shape, data);
+  setPointData(data){
+
     this.setState({
-        pointData: temp
+        pointData: data
     });
   }
 
@@ -33,15 +31,23 @@ export class Main extends React.Component{
   }
 
   update(shape, data){
-    this.setPointData(shape, data);
+    this.setPointData(data);
     this.setCurrShape(shape);
   }
 
   render(){
     return(
       <div>
-        <ToolBarContainer update = {this.update}/>
-        <CanvasContainer update = {this.update}/>
+        <ToolBarContainer
+          pointData = {this.state.pointData}
+          currShape = {this.state.currShape}
+          update = {this.update}
+        />
+        <CanvasContainer
+          pointData = {this.state.pointData}
+          currShape = {this.state.currShape}
+          update = {this.update}
+        />
       </div>
     );
 

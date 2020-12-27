@@ -19,9 +19,10 @@ export class ToolBar extends React.Component{
   //error
   addShape(){
     this.setState({
-      id: id+1;
+      id: this.state.id+1
     });
 
+    //REWRITE
 
     this.forceUpdate();
   }
@@ -33,7 +34,6 @@ export class ToolBar extends React.Component{
   }
 
   render(){
-    const shapeData = this.props.shapeData;
     const toggle = this.state.toggle;
 
     return (
@@ -49,8 +49,8 @@ export class ToolBar extends React.Component{
           <Toggle minimizeShapeList = {this.minimizeShapeList} isToggleOn = {toggle}/>
         </div>
         <ShapeListContainer
-          shapeData = {shapeData}
-          isToggleOn = {toggle}
+          pointData = {this.props.pointData}
+          currShape = {this.props.currShape}
           update = {this.props.update}
           />
       </div>

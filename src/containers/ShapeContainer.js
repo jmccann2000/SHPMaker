@@ -11,9 +11,9 @@ export class ShapeContainer extends React.Component{
         <div className = 'shapeButton'>
           <ShapeIcon
             shape = {this.props.shape}
-            shapeData = {this.props.shapeData}
             pointData = {this.props.pointData}
-            key = {this.props.shapeData}
+            currShape = {this.props.currShape}
+            update = {this.props.update}
           />
         </div>
         <div className = 'smallButton'>

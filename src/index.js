@@ -6,14 +6,17 @@ import {ShapeListContainer} from './containers/ShapeListContainer';
 import {ShapeContainer} from './containers/ShapeContainer';
 import {ShapeListData} from './components/ShapeListData';
 import {Main} from './containers/Main';
-
 import './index.css';
 
-var shapeData = new ShapeListData();
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer)
 
 ReactDOM.render(
-  <div>
+  <Provider store = {store}>
     <Main shapeData = {shapeData} />
-  </div>,
+  </Provider>,
   document.getElementById('root')
 );

@@ -25,32 +25,28 @@ export class ShapeList extends React.Component {
   constructor(props){
     super(props);
 
-
     this.removeShape = this.removeShape.bind(this);
     this.moveUp = this.moveUp.bind(this);
     this.moveDown = this.moveDown.bind(this);
     this.merge = this.merge.bind(this);
   }
 
-  //error
+
   removeShape(e){
-    const shapeData = this.props.shapeData;
-    const new_sl = shapeData.getShapeData();
+    const shapeData = this.props.pointData.keys();
+    const currShape = e.target.getAttribute("id");
+    const pointData = this.props.pointData;
 
-    if(shapeData.getShapeData().length  > 1){
-      removeFromList(new_sl, e.target.getAttribute("id"));
-
-      this.props.shapeData.storeShapeData(new_sl);
-
-      shapeData.setCurrShape(e.target.getAttribute("id"));
-
-      const pointData = shapeData.getPointData();
-
+    if(shapeData.length  > 1){
+      removeFromList(shapeData, currShape);
       pointData.delete(shapeData.currShape);
     }
 
+    this.props.update(currShape, pointData);
+
   }
 
+  //FIX
   moveUp(e){
     const shapeData = this.props.shapeData;
     const new_sl = shapeData.getShapeData();
@@ -60,6 +56,7 @@ export class ShapeList extends React.Component {
     this.forceUpdate();
   }
 
+  //FIX
   moveDown(e){
     const shapeData = this.props.shapeData;
     const new_sl = shapeData.getShapeData();
@@ -69,6 +66,7 @@ export class ShapeList extends React.Component {
     this.forceUpdate();
   }
 
+  //FINISH
   merge(e){
     const shapeData = this.props.shapeData;
     const new_sl = shapeData.getShapeData();
@@ -83,18 +81,21 @@ export class ShapeList extends React.Component {
   }
 
   render(){
-    const shapeData = this.props.shapeData;
-    const list = shapeData.getShapeData();
+    const pointData = this.props.pointData;
+    const list = Array.from(pointData.keys());;
+    alert(list);
 
     const shapeList = list.map((s) =>
       <ShapeContainer
         shape = {s}
         key = {s}
-        shapeData = {this.props.shapeData}
         removeShape = {this.removeShape}
         moveUp = {this.moveUp}
         moveDown = {this.moveDown}
         merge = {this.merge}
+
+        pointData = {this.props.pointData}
+        currShape = {this.props.currShape}
         update = {this.props.update}
         />
     );
