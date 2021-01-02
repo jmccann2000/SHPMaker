@@ -2,8 +2,10 @@ import React from "react";
 import {Toggle} from "../components/Toggle";
 import {ShapeListContainer} from "../containers/ShapeListContainer";
 import {ShapeList} from "./ShapeList";
+import {connect} from 'react-redux';
+import {addShape} from '../actions';
 
-export class ToolBar extends React.Component{
+class ToolBar extends React.Component{
 
   constructor(props){
     super(props);
@@ -12,22 +14,6 @@ export class ToolBar extends React.Component{
     };
 
     this.minimizeShapeList = this.minimizeShapeList.bind(this);
-    this.addShape = this.addShape.bind(this);
-  }
-
-  addShape(){
-    const shapeData = this.props.shapeData;
-    const shapeList = shapeData.getShapeData();
-    shapeData.incrementID();
-    shapeList.push("Shape"+shapeData.id);
-    shapeData.storeShapeData(shapeList);
-
-    let shapePointMap=shapeData.getPointData();
-    shapePointMap.set("Shape"+shapeData.id,[]);
-
-    shapeData.storePointData(shapePointMap);
-
-    this.forceUpdate();
   }
 
   minimizeShapeList() {
@@ -37,7 +23,6 @@ export class ToolBar extends React.Component{
   }
 
   render(){
-    const shapeData = this.props.shapeData;
     const toggle = this.state.toggle;
 
     return (
@@ -48,15 +33,24 @@ export class ToolBar extends React.Component{
         </div>
         <div id="shapesToolbar">
           <button
-            onClick = {this.addShape}>Add Shape
+            onClick = {this.props.addShape}>Add Shape
           </button>
           <Toggle minimizeShapeList = {this.minimizeShapeList} isToggleOn = {toggle}/>
         </div>
         <ShapeListContainer
-          shapeData = {shapeData}
-          isToggleOn = {toggle}
-          />
+          isToggleOn={toggle}
+        />
       </div>
     );
   }
 }
+
+const mapStateToProps=(state)=>{
+  return {
+    shapes: state
+  };
+}
+
+const mapDispatchToProps = {addShape}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToolBar);

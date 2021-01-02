@@ -1,23 +1,34 @@
 import React from 'react';
 import image from './../icons/test.png';
+import {connect} from 'react-redux';
 import {ShapeIcon} from './../components/ShapeIcon';
+import {removeShape} from '../actions';
 
-export class ShapeContainer extends React.Component{
+class ShapeContainer extends React.Component{
 
   render(){
+    let currShape=this.props.shape;
 
     return (
       <div className='shapeWrapper'>
-        <div className = 'shapeButton'>
-          <ShapeIcon shape = {this.props.shape} shapeData = {this.props.shapeData}/>
-        </div>
+        <p>{currShape}</p>
         <div className = 'smallButton'>
-          <button onClick = {this.props.removeShape} id = {this.props.shape}>X</button>
-          <button onClick = {this.props.moveUp} id = {this.props.shape}>U</button>
-          <button onClick = {this.props.moveDown} id = {this.props.shape}>D</button>
-          <button onClick = {this.props.merge} id = {this.props.shape}>Merge</button>
+          <button onClick = {this.props.removeShape} id = {currShape}>X</button>
+          <button onClick = {this.props.moveUp} id = {currShape}>U</button>
+          <button onClick = {this.props.moveDown} id = {currShape}>D</button>
+          <button onClick = {this.props.merge} id = {currShape}>Merge</button>
         </div>
       </div>
     )
   }
 }
+
+const mapStateToProps=(state)=>{
+  return {
+    shapes: state
+  };
+}
+
+const mapDispatchToProps =(currShape) =>{removeShape(currShape)}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShapeContainer);

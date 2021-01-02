@@ -1,5 +1,5 @@
 import React from 'react';
-import {ShapeList} from './../components/ShapeList'
+import ShapeList from './../components/ShapeList'
 
 
 export class ShapeListContainer extends React.Component{
@@ -8,7 +8,6 @@ export class ShapeListContainer extends React.Component{
   }
 
   render(){
-    const shapeData = this.props.shapeData;
     const isToggleOn = this.props.isToggleOn;
 
     const disp = isToggleOn?"block":"none";
@@ -19,9 +18,7 @@ export class ShapeListContainer extends React.Component{
     return (
       <div>
         <div className = "shapeWrapper" id='shapeListWrapper' style = {style}>
-          <ShapeList
-            shapeData={shapeData}
-          />
+          <ShapeList/>
         </div>
       </div>
     )

@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {CanvasContainer} from './containers/CanvasContainer';
-import {ToolBarContainer} from './containers/ToolBarContainer';
-import {ShapeListContainer} from './containers/ShapeListContainer';
-import {ShapeContainer} from './containers/ShapeContainer';
-import {ShapeListData} from './components/ShapeListData';
-
+import ToolBarContainer from './containers/ToolBarContainer';
 import './index.css';
 
-const shapeData = new ShapeListData();
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import {shapes} from './reducers/index'
+
+let store = createStore(shapes)
 
 ReactDOM.render(
-  <div>
-    <ToolBarContainer shapeData={shapeData}/>
-    <CanvasContainer shapeData={shapeData}/>
-  </div>,
+  <Provider store = {store}>
+    <ToolBarContainer/>
+    <CanvasContainer/>
+  </Provider>,
   document.getElementById('root')
 );

@@ -6,6 +6,7 @@ export class ShapeListData {
     this.pointData.set("Shape1", []);
     this.id = 1;
     this.currShape = "Shape1";
+
   }
 
   storeShapeData(data){
@@ -35,4 +36,5 @@ export class ShapeListData {
   setCurrShape(id){
     this.currShape = id;
   }
+
 }
